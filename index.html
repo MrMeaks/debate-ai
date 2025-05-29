@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Debate AI Assistant</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 2rem auto; }
+    textarea { width: 100%; height: 150px; }
+    input, select, button { padding: 10px; margin-top: 10px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>Debate AI Assistant</h1>
+  <form method="POST">
+    <label>Debate Topic:</label>
+    <input type="text" name="topic" required>
+
+    <label>Choose a Side:</label>
+    <select name="stance">
+      <option value="affirmative">Affirmative</option>
+      <option value="negative">Negative</option>
+    </select>
+
+    <button type="submit">Generate Debate Argument</button>
+  </form>
+
+  {% if output %}
+    <h2>Debate Topic: {{ topic }} ({{ stance }})</h2>
+    <textarea readonly>{{ output }}</textarea>
+  {% endif %}
+</body>
+</html>
