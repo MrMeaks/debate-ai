@@ -1,31 +1,38 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Debate AI Assistant</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debate AI</title>
   <style>
-    body { font-family: Arial; max-width: 600px; margin: 2rem auto; }
-    textarea { width: 100%; height: 150px; }
-    input, select, button { padding: 10px; margin-top: 10px; width: 100%; }
+    body { font-family: Arial, sans-serif; padding: 2rem; background-color: #f4f4f4; }
+    h1 { color: #333; }
+    form { background: white; padding: 1rem; border-radius: 8px; max-width: 500px; margin-bottom: 2rem; }
+    label { display: block; margin-top: 1rem; }
+    input[type="text"], select { width: 100%; padding: 0.5rem; margin-top: 0.5rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    pre { background: #eee; padding: 1rem; white-space: pre-wrap; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <h1>Debate AI Assistant</h1>
+  <h1>Debate AI</h1>
   <form method="POST">
-    <label>Debate Topic:</label>
-    <input type="text" name="topic" required>
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" name="topic" required />
 
-    <label>Choose a Side:</label>
-    <select name="stance">
+    <label for="stance">Stance:</label>
+    <select id="stance" name="stance">
       <option value="affirmative">Affirmative</option>
       <option value="negative">Negative</option>
     </select>
 
-    <button type="submit">Generate Debate Argument</button>
+    <button type="submit">Generate Debate Points</button>
   </form>
 
   {% if output %}
-    <h2>Debate Topic: {{ topic }} ({{ stance }})</h2>
-    <textarea readonly>{{ output }}</textarea>
+    <h2>Debate Output</h2>
+    <pre>{{ output }}</pre>
   {% endif %}
 </body>
 </html>
